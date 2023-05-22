@@ -14,9 +14,10 @@ import GameGenreContainer from "./GameGenreContainer";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const GenreList = ({ onSelectGenre }: Props) => {
+const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
   const { data, isLoading, error } = useGenres();
   const skeletons = [...Array(15).keys()];
   if (error) return null;
@@ -41,6 +42,9 @@ const GenreList = ({ onSelectGenre }: Props) => {
                     src={getCroppedImageUrl(genre.image_background)}
                   ></Image>
                   <Button
+                    fontWeight={
+                      genre.id === selectedGenre?.id ? "bold" : "normal"
+                    }
                     onClick={() => onSelectGenre(genre)}
                     variant="link"
                     fontSize="l"
