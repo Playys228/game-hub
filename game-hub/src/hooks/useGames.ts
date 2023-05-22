@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import {CanceledError} from 'axios'
 import apiClient from "../services/api-client";
 import useData from "./UseData";
+import { Genre } from "./useGenres";
 
 
 export interface Game {
@@ -23,7 +24,7 @@ interface FetchGamesResponse {
   results: Game[]
 }
 
-const useGames = () => useData<Game>('/games')
+const useGames = (selectedGenre: Genre | null) => useData<Game>('/games', [selectedGenre?.id], { params: {genres: selectedGenre?.id}})
   
 
 
