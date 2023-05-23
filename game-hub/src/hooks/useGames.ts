@@ -24,7 +24,7 @@ interface FetchGamesResponse {
   results: Game[]
 }
 
-const useGames = (selectedGenre: Genre | null) => useData<Game>('/games', [selectedGenre?.id], { params: {genres: selectedGenre?.id}})
+const useGames = (selectedGenre: Genre | null, selectedPlatform: Platform | null) => useData<Game>('/games', [selectedGenre?.id, selectedPlatform?.id], { params: {genres: selectedGenre?.id, platforms: selectedPlatform?.id}})
   
 
 
