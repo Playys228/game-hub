@@ -3,6 +3,7 @@ import React from "react";
 import { BsChevronBarDown, BsChevronDown } from "react-icons/bs";
 import usePlatforms from "../hooks/UsePlatforms";
 import { Platform } from "../hooks/useGames";
+import { GameQuery } from "../App";
 
 interface Props {
   onSelectPlatform: (platform: Platform) => void;
