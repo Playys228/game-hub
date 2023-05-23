@@ -19,7 +19,9 @@ const GameGrid = ({ gameQuery }: Props) => {
 
   const skeletons = [...Array(10).keys()];
 
-  return (
+  return error ? (
+    <Text>{error}</Text>
+  ) : (
     <>
       {error && <Text>{error}</Text>}
       <SimpleGrid
