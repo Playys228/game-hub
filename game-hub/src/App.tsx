@@ -2,6 +2,7 @@ import { useState } from "react";
 import {
   Button,
   ButtonGroup,
+  Flex,
   Grid,
   GridItem,
   HStack,
@@ -47,7 +48,7 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <HStack spacing={5} paddingLeft={2} marginBottom={2}>
+        <Flex gap="2" paddingLeft={2} marginBottom={2}>
           <PlatformSelector
             onSelectPlatform={(platform) =>
               setGameQuery({ ...GameQuery, platform })
@@ -60,7 +61,7 @@ function App() {
             }
             sortOrder={GameQuery.sortOrder}
           ></SortSelector>
-        </HStack>
+        </Flex>
         <GameGrid gameQuery={GameQuery}></GameGrid>
       </GridItem>
     </Grid>
